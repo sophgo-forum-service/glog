@@ -1747,13 +1747,13 @@ void LogMessage::SendToSyslogAndLog() {
   if (!openlog_already_called) {
     openlog(glog_internal_namespace_::ProgramInvocationShortName(),
             LOG_CONS | LOG_NDELAY | LOG_PID,
-            LOG_USER);
+            LOG_LOCAL6);
     openlog_already_called = true;
   }
 
   // This array maps Google severity levels to syslog levels
   const int SEVERITY_TO_LEVEL[] = { LOG_INFO, LOG_WARNING, LOG_ERR, LOG_EMERG };
-  syslog(LOG_USER | SEVERITY_TO_LEVEL[static_cast<int>(data_->severity_)], "%.*s",
+  syslog(LOG_LOCAL6 | SEVERITY_TO_LEVEL[static_cast<int>(data_->severity_)], "%.*s",
          int(data_->num_chars_to_syslog_),
          data_->message_text_ + data_->num_prefix_chars_);
   SendToLog();
