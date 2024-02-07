@@ -20,7 +20,7 @@ set (CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 option (WITH_GFLAGS "Use gflags" ON)
 option (WITH_THREADS "Enable multithreading support" ON)
 option (WITH_TLS "Enable Thread Local Storage (TLS) support" ON)
-option (BUILD_SHARED_LIBS "Build shared libraries" ON)
+option (BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option (PRINT_UNSYMBOLIZED_STACK_TRACES
   "Print file offsets in traces instead of symbolizing" OFF)
 option (WITH_PKGCONFIG "Enable pkg-config support" ON)
